@@ -1,9 +1,18 @@
 package com.codeasylums.calculator;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -30,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     button[6] = (Button) findViewById(R.id.numberButton7);
     button[7] = (Button) findViewById(R.id.numberButton8);
     button[8] = (Button) findViewById(R.id.numberButton9);
-    //button[9] = (Button) findViewById(R.id.numberButtonDot);
+    button[9] = (Button) findViewById(R.id.numberButtonDot);
     button[10] = (Button) findViewById(R.id.numberButton0);
     button[11] = (Button) findViewById(R.id.numberButtonEqual);
     button[12] = (Button) findViewById(R.id.numberButtonClear);
@@ -38,14 +47,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     button[14] = (Button) findViewById(R.id.numberButtonMinus);
     button[15] = (Button) findViewById(R.id.numberButtonMultiply);
     button[16] = (Button) findViewById(R.id.numberButtonDivide);
+    button[12].setOnLongClickListener(new OnLongClickListener() {
+      @Override
+      public boolean onLongClick(View v) {
+//        ansText.setText("");
+//        ansText2.setText("");
+        Animation fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setInterpolator(new AccelerateInterpolator());
+        fadeOut.setDuration(500);
+
+        fadeOut.setAnimationListener(new AnimationListener() {
+          public void onAnimationEnd(Animation animation) {
+            ansText.setText("");
+            ansText2.setText("");
+          }
+
+          public void onAnimationRepeat(Animation animation) {
+          }
+
+          public void onAnimationStart(Animation animation) {
+          }
+        });
+        ansText.startAnimation(fadeOut);
+        ansText2.startAnimation(fadeOut);
+        return false;
+      }
+    });
 
     ansText = (TextView) findViewById(R.id.ansTextView);
     ansText2 = (TextView) findViewById(R.id.ansTextView2);
 
+
     for (int i = 0; i < 17; i++) {
-      if (i != 9) {
-        button[i].setOnClickListener(this);
-      }
+
+      button[i].setOnClickListener(this);
+
     }
     ansText.getText();
 
@@ -56,54 +92,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String s = ansText.getText().toString();
     if (v.getId() == R.id.numberButtonEqual) {
-      doCalculation(s);
+      ansText.setText(ansText2.getText().toString());
+      //ansText2.setText("");
     } else if (v.getId() == R.id.numberButtonClear) {
 
       if (s != null && s.length() > 0) {
         ansText.setText(s.substring(0, s.length() - 1));
       }
-      doCalculation(ansText.getText().toString());
-    } else if (v.getId() == R.id.numberButtonMultiply) {
-      if (s != null) {
-        ansText.setText(ansText.getText().toString() + "*");
-      } else {
-        ansText.setText("*");
-      }
-    } else if (v.getId() == R.id.numberButtonPlus) {
-      if (s != null) {
-        ansText.setText(ansText.getText().toString() + "+");
-      } else {
-        ansText.setText("+");
+      if (!validOperation(ansText.getText().toString())) {
+        if (ansText.getText().toString().length() > 0) {
+          ansText2.setText( String.valueOf(Calculations.doCalculations(
+              ansText.getText().toString().substring(0, ansText.getText().toString().length() - 1))));
+          ;
+        }
       }
 
-    } else if (v.getId() == R.id.numberButtonMinus) {
-      if (s != null) {
-        ansText.setText(ansText.getText().toString() + "-");
-      } else {
-        ansText.setText("-");
-      }
-
-
-    } else if (v.getId() == R.id.numberButtonDivide) {
-      if (s != null) {
-        ansText.setText(ansText.getText().toString() + "/");
-      } else {
-        ansText.setText("/");
+      if (ansText.getText().length() == 0) {
+        ansText2.setText("");
       }
     } else {
-      String temp = v.getResources().getResourceName(v.getId()).toString();
+
       if (s != null) {
-        ansText.setText(ansText.getText().toString() + temp.charAt(temp.length() - 1));
+        ansText.setText(ansText.getText().toString() + ((Button) v).getText().toString());
       } else {
-        ansText.setText(temp.charAt(temp.length() - 1));
+        ansText.setText(((Button) v).getText().toString());
       }
-      doCalculation(ansText.getText().toString());
+
+    }
+    s = ansText.getText().toString();
+    if (validOperation(s)) {
+      ansText2.setText(String.valueOf(Calculations.doCalculations(s)));
     }
 
 
   }
 
-  void doCalculation(String s) {
+
+  boolean validOperation(String s) {
+    if (s.length() > 0 && s.charAt(s.length() - 1) != '+' && s.charAt(s.length() - 1) != '-'
+        && s.charAt(s.length() - 1) != '*' && s.charAt(s.length() - 1) != '/') {
+      return true;
+    }
+    return false;
+  }
+
+
+
+  /*void doCalculation(String s) {
 
     if (s == null) {
       return;
@@ -121,9 +156,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       return;
     }
 
-    a = Integer.parseInt(s.substring(0, i));
+    a = Float.parseFloat(s.substring(0, i));
     Log.d("TEST", s.substring(i + 1, s.length()));
-    b = Integer.parseInt(s.substring(i + 1, s.length()));
+    b = Float.parseFloat(s.substring(i + 1, s.length()));
 //b=1;else
     if (c == '+') {
       ansText2.setText(String.valueOf(a + b));
@@ -140,6 +175,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
       }
     }
   }
-
+*/
 
 }

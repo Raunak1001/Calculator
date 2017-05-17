@@ -46,140 +46,93 @@
 
       <Button
         android:id="@+id/numberButton1"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="1"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="1" />
 
       <Button
         android:id="@+id/numberButton2"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="2"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="2" />
 
       <Button
         android:id="@+id/numberButton3"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="3"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="3" />
 
       <Button
         android:id="@+id/numberButton4"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="4"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="4" />
 
 
       <Button
         android:id="@+id/numberButton5"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="5"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="5" />
 
       <Button
         android:id="@+id/numberButton6"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="6"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="6" />
 
 
       <Button
         android:id="@+id/numberButton7"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="7"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="7" />
 
       <Button
         android:id="@+id/numberButton8"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
         android:background="@color/buttonColor"
-        android:text="8"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="8" />
 
 
       <Button
         android:id="@+id/numberButton9"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="9"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="9" />
 
 
       <Button
-        android:id="@+id/numberButton."
+        android:id="@+id/numberButtonDot"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="."
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="." />
 
       <Button
         android:id="@+id/numberButton0"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="0"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="0" />
 
 
       <Button
         android:id="@+id/numberButtonEqual"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="="
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="=" />
 
 
     </GridLayout>
@@ -197,58 +150,41 @@
 
       <Button
         android:id="@+id/numberButtonClear"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
         android:text="CLR"
-        android:textColor="@color/numberColor"
         android:textSize="25dp" />
 
       <Button
         android:id="@+id/numberButtonPlus"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="+"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="+" />
 
       <Button
         android:id="@+id/numberButtonMinus"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
         android:background="@color/buttonColor"
-        android:text="-"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="-" />
 
       <Button
         android:id="@+id/numberButtonMultiply"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:background="@color/buttonColor"
-        android:text="*"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="*" />
 
       <Button
         android:id="@+id/numberButtonDivide"
+        style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
         android:background="@color/buttonColor"
-        android:text="/"
-        android:textColor="@color/numberColor"
-        android:textSize="30dp" />
+        android:text="/" />
 
     </GridLayout>
 
